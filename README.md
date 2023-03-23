@@ -11,3 +11,7 @@ Permitir que os usuários possam avaliar os produtos comprados e deixar uma nota
 experiência.
 
 * Permitir avaliações com foto (1 ponto)
+
+---
+
+Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, upvote/downvote e/ou estrelas (de 0 à 5) dos produtos.
