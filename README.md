@@ -14,4 +14,22 @@ experiência.
 
 ---
 
-Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, upvote/downvote e/ou estrelas (de 0 à 5) dos produtos.
+Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, estrelas (de 0 à 5) dos produtos.
+
+---
+
+CREATE DATABASE teste;
+
+USE teste;
+
+CREATE TABLE comentarios(
+   numero INT AUTO_INCREMENT PRIMARY KEY,
+   nome_usuario VARCHAR(50) NOT NULL,
+   conteudo VARCHAR (240) NOT NULL,
+   estrelas DECIMAL (6,1) NOT NULL)
+   data_hora timestamp;
+
+INSERT INTO comentarios(nome_usuario, conteudo, estrelas) VALUES
+(`Gabriel`, `insira comentário aqui`, `5.0`);
+   
+SELECT * FROM comentarios;
