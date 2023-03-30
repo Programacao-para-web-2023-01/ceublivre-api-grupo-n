@@ -14,7 +14,7 @@ experiência.
 
 ---
 
-### Gerenciamento de comentários (2 pontos)
+### #2 - Gerenciamento de comentários (2 pontos)
 
 Permitir que os usuários possam comentar nas avaliações de outros usuários.
 
