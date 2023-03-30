@@ -11,13 +11,17 @@ perguntas e repostas.
 Permitir que os usuários possam comentar nas avaliações de outros usuários.
 
 ---
+
+Necessidades: identificar comentário que vai receber a resposta, identificar usuário dono da resposta, resposta em si com limite de caracteres(?), data e hora da resposta
+
+---
+
 ```
-CREATE TABLE comentarios(
+CREATE TABLE resposta(
    numero INT AUTO_INCREMENT PRIMARY KEY,
-   nome_usuario VARCHAR(50) NOT NULL, --- foreign key
    comentario NOT NULL, --- foreign key
-   conteudo VARCHAR (240) NOT NULL,
-   estrelas DECIMAL (6,1) NOT NULL)
-   data_hora timestamp;
-   
-   ```
+   nome_usuario NOT NULL, --- foreign key, usuário da resposta
+   conteudo VARCHAR(240) NOT NULL,
+   data_hora TIMESTAMP);
+
+```
