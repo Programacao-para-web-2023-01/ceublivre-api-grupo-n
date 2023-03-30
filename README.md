@@ -27,8 +27,8 @@ CREATE TABLE comentarios(
    nome_usuario VARCHAR(50) NOT NULL, --- foreign key
    nome_produto VARCHAR(250) NOT NULL, --- foreign key
    conteudo VARCHAR (240) NOT NULL,
-   estrelas DECIMAL (6,1) NOT NULL)
-   data_hora timestamp;
+   estrelas DECIMAL (6,1) NOT NULL,
+   data_hora timestamp);
 
 INSERT INTO comentarios(conteudo, estrelas) VALUES
 (`insira comentário aqui`, `5.0`);
