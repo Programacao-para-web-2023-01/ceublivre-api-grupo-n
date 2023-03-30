@@ -14,7 +14,7 @@ experiência.
 
 ---
 
-Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, estrelas (de 0 à 5) dos produtos.
+Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, estrelas (de 0 à 5) dos produtos, upvote/downvote(?).
 
 ---
 ```
