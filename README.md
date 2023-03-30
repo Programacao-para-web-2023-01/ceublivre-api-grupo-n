@@ -25,12 +25,13 @@ USE teste;
 CREATE TABLE comentarios(
    numero INT AUTO_INCREMENT PRIMARY KEY,
    nome_usuario VARCHAR(50) NOT NULL, --- foreign key
+   nome_produto VARCHAR(250) NOT NULL --- foreign key
    conteudo VARCHAR (240) NOT NULL,
    estrelas DECIMAL (6,1) NOT NULL)
    data_hora timestamp;
 
-INSERT INTO comentarios(nome_usuario, conteudo, estrelas) VALUES
-(`Gabriel`, `insira comentário aqui`, `5.0`);
+INSERT INTO comentarios(conteudo, estrelas) VALUES
+(`insira comentário aqui`, `5.0`);
    
 SELECT * FROM comentarios;
 ```
