@@ -11,4 +11,13 @@ perguntas e repostas.
 Permitir que os usuários possam comentar nas avaliações de outros usuários.
 
 ---
-
+```
+CREATE TABLE comentarios(
+   numero INT AUTO_INCREMENT PRIMARY KEY,
+   nome_usuario VARCHAR(50) NOT NULL, --- foreign key
+   comentario NOT NULL, --- foreign key
+   conteudo VARCHAR (240) NOT NULL,
+   estrelas DECIMAL (6,1) NOT NULL)
+   data_hora timestamp;
+   
+   ```
