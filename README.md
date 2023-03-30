@@ -14,7 +14,7 @@ experiência.
 
 ---
 
-Necessidades: nome do usuário, limite de caracteres (?), número do comentário, data e hora nos quais o comentário foi realizado, estrelas (de 0 à 5) dos produtos, upvote/downvote(?).
+Necessidades: nome do usuário, número do comentário, data e hora nos quais o comentário foi realizado, estrelas (de 0 à 5) dos produtos, upvote/downvote(?).
 
 ---
 ```
@@ -25,7 +25,7 @@ USE teste;
 CREATE TABLE comentarios(
    numero INT AUTO_INCREMENT PRIMARY KEY,
    nome_usuario VARCHAR(50) NOT NULL, --- foreign key
-   nome_produto VARCHAR(250) NOT NULL, --- foreign key
+   nome_produto VARCHAR(500) NOT NULL, --- foreign key
    conteudo VARCHAR(240),
    estrelas DECIMAL(6,1) NOT NULL,
    data_hora timestamp);
