@@ -18,20 +18,69 @@ Necessidades: nome do usuário, número do comentário, data e hora nos quais o 
 
 ---
 ```
-CREATE DATABASE teste;
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from dotenv import load_dotenv
 
-USE teste;
+import os
+import requests
 
-CREATE TABLE comentarios(
-   numero INT AUTO_INCREMENT PRIMARY KEY,
-   nome_usuario VARCHAR(50) NOT NULL, --- foreign key
-   nome_produto VARCHAR(500) NOT NULL, --- foreign key
-   conteudo VARCHAR(240),
-   estrelas DECIMAL(6,1) NOT NULL,
-   data_hora timestamp);
+load_dotenv()
+from deta import Deta  # Import Deta
 
-INSERT INTO comentarios(conteudo, estrelas) VALUES
-(`insira comentário aqui`, `5.0`);
-   
-SELECT * FROM comentarios;
+deta = Deta(os.environ["PROJECT_KEY"])
+
+db = deta.Base("interacoes")
+
+app = FastAPI()
+
+
+class Comentario(BaseModel):
+    usuario: str
+    corpo: str
+    data: str
+
+
+@app.get("/comentarios")
+async def get_comentarios():
+    res = db.fetch()
+    all_items = res.items
+
+    # fetch until last is 'None'
+    while res.last:
+        res = db.fetch(last=res.last)
+        all_items += res.items
+
+    return all_items
+
+
+@app.get("/comentarios/{id}")
+async def get_comentarios_by_id(id: str):
+    student = db.get(id)
+
+    if comentario:
+        return comentario
+
+    raise HTTPException(status_code=404, detail="Comentário não encontrado.")
+
+
+@app.post("/comentarios")
+async def create_comentario(comentario: Comentario):
+    new_student = db.insert(comentario.dict())
+
+    return new_comentario
+
+
+@app.put("/comentario/{id}")
+async def update_comentario(id: str, comentario: Comentario):
+    db.update(comentario.dict(), id)
+
+    return comentario
+
+
+@app.delete("/comentario/{id}")
+async def delete_comentario(id: str):
+    db.delete(id)
+
+    return {"detail": "Comentário deletado com sucesso."}
 ```
