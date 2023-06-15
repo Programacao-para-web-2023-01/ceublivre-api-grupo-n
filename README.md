@@ -56,7 +56,7 @@ async def get_comentarios():
 
 @app.get("/comentarios/{id}")
 async def get_comentarios_by_id(id: str):
-    student = db.get(id)
+    comentario = db.get(id)
 
     if comentario:
         return comentario
@@ -66,7 +66,7 @@ async def get_comentarios_by_id(id: str):
 
 @app.post("/comentarios")
 async def create_comentario(comentario: Comentario):
-    new_student = db.insert(comentario.dict())
+    new_comentario = db.insert(comentario.dict())
 
     return new_comentario
 
